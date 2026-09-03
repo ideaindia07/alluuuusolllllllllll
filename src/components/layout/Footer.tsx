@@ -23,6 +23,7 @@ export default function Footer() {
               {[
                 { label: 'Work', href: '/#work' },
                 { label: 'Services', href: '/services/' },
+                { label: 'Journal', href: '/blog/' },
                 { label: 'About', href: '/about/' },
                 { label: 'Team', href: '/#team' },
                 { label: 'Contact', href: '/contact/' },

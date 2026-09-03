@@ -1,4 +1,5 @@
 import { SERVICES } from '@/lib/services';
+import { BLOGS } from '@/lib/blogs';
 
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://allsoll.com').replace(
   /\/$/,
@@ -69,6 +70,8 @@ export const FOOTER_CRAWL_LINKS: { label: string; href: string }[] = [
   { label: 'Performance marketing agency Jaipur', href: '/services/' },
   { label: 'Allsoll Jaipur', href: '/about/' },
   { label: 'Allsoll India', href: '/about/' },
+  { label: 'ALLSOLL Journal', href: '/blog/' },
+  { label: 'GEO vs SEO 2026', href: '/blog/geo-vs-seo-2026/' },
 ];
 
 export const SERVICE_SEO: Record<
@@ -163,12 +166,18 @@ export const SITE_PAGES = [
   { path: '/', changeFrequency: 'weekly' as const, priority: 1 },
   { path: '/about/', changeFrequency: 'monthly' as const, priority: 0.8 },
   { path: '/services/', changeFrequency: 'weekly' as const, priority: 0.9 },
+  { path: '/blog/', changeFrequency: 'weekly' as const, priority: 0.8 },
   { path: '/contact/', changeFrequency: 'monthly' as const, priority: 0.7 },
   { path: '/privacy-policy/', changeFrequency: 'yearly' as const, priority: 0.4 },
   ...SERVICES.map((service) => ({
     path: `/services/${service.slug}/`,
     changeFrequency: 'monthly' as const,
     priority: 0.85,
+  })),
+  ...BLOGS.map((post) => ({
+    path: `/blog/${post.slug}/`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.75,
   })),
 ];
 

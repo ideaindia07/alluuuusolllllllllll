@@ -65,6 +65,7 @@ export default function Header() {
   const navLinks = [
     { label: 'Work', href: '/#work' },
     { label: 'Services', href: '/services' },
+    { label: 'Journal', href: '/blog/' },
     { label: 'Impact', href: '/#stats' },
     { label: 'About', href: '/about' },
     { label: 'Team', href: '/#team' },
@@ -132,9 +133,20 @@ export default function Header() {
             />
           </a>
 
-          {/* Right: Contact (desktop) + Hamburger (mobile) */}
-          <div className="flex items-center gap-4 ml-auto z-10">
-            <div className="hidden md:flex items-center">
+          {/* Right: Journal + Contact (desktop) + Hamburger (mobile) */}
+          <div className="flex items-center gap-3 ml-auto z-10">
+            <div className="hidden md:flex items-center gap-3">
+              <a
+                href="/blog/"
+                className="group relative inline-flex items-center gap-2 px-5 py-2.5
+                  rounded-full border border-white/20 bg-white/5
+                  text-[13px] font-display font-semibold tracking-wide text-white
+                  backdrop-blur-md
+                  transition-all duration-300 ease-out
+                  hover:border-[#FFD43B]/70 hover:text-[#FFD43B] hover:bg-[#FFD43B]/10"
+              >
+                Journal
+              </a>
               <a
                 ref={rightLinkRef}
                 href="/contact"
