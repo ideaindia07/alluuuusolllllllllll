@@ -40,6 +40,8 @@ export const SEO_KEYWORDS = [
   'brand identity design Jaipur',
   'Allsoll Jaipur',
   'Allsoll India',
+  'GEO vs SEO',
+  'generative engine optimization',
 ];
 
 /** Crawlable footer links — visually hidden, kept in DOM for search engines */
@@ -71,7 +73,10 @@ export const FOOTER_CRAWL_LINKS: { label: string; href: string }[] = [
   { label: 'Allsoll Jaipur', href: '/about/' },
   { label: 'Allsoll India', href: '/about/' },
   { label: 'ALLSOLL Journal', href: '/blog/' },
-  { label: 'GEO vs SEO 2026', href: '/blog/geo-vs-seo-2026/' },
+  ...BLOGS.map((post) => ({
+    label: post.title,
+    href: `/blog/${post.slug}/`,
+  })),
 ];
 
 export const SERVICE_SEO: Record<
@@ -162,11 +167,18 @@ export function absoluteUrl(path = '/') {
   return `${SITE_URL}${withSlash === '//' ? '/' : withSlash}`;
 }
 
-export const SITE_PAGES = [
+export type SitePage = {
+  path: string;
+  changeFrequency: 'weekly' | 'monthly' | 'yearly';
+  priority: number;
+  lastModified?: string;
+};
+
+export const SITE_PAGES: SitePage[] = [
   { path: '/', changeFrequency: 'weekly' as const, priority: 1 },
   { path: '/about/', changeFrequency: 'monthly' as const, priority: 0.8 },
   { path: '/services/', changeFrequency: 'weekly' as const, priority: 0.9 },
-  { path: '/blog/', changeFrequency: 'weekly' as const, priority: 0.8 },
+  { path: '/blog/', changeFrequency: 'weekly' as const, priority: 0.85 },
   { path: '/contact/', changeFrequency: 'monthly' as const, priority: 0.7 },
   { path: '/privacy-policy/', changeFrequency: 'yearly' as const, priority: 0.4 },
   ...SERVICES.map((service) => ({
@@ -177,7 +189,8 @@ export const SITE_PAGES = [
   ...BLOGS.map((post) => ({
     path: `/blog/${post.slug}/`,
     changeFrequency: 'monthly' as const,
-    priority: 0.75,
+    priority: 0.8,
+    lastModified: post.dateIso,
   })),
 ];
 

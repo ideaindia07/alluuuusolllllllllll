@@ -18,6 +18,7 @@ export type BlogPost = {
   cover: string;
   coverAlt: string;
   ogImage: string;
+  keywords: string[];
   blocks: BlogBlock[];
 };
 
@@ -27,11 +28,26 @@ const img = {
   seo: '/blogs/blog1/seo-services.webp',
 };
 
+export function toBlogSlug(title: string) {
+  return title
+    .toLowerCase()
+    .replace(/[''`´]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+export function blogPath(slug: string) {
+  return `/blog/${slug}/`;
+}
+
+const GEO_VS_SEO_TITLE =
+  "GEO vs SEO: What's the Difference and Which One Does Your Business Need in 2026?";
+
 export const BLOGS: BlogPost[] = [
   {
-    slug: 'geo-vs-seo-2026',
+    slug: toBlogSlug(GEO_VS_SEO_TITLE),
     issue: '01',
-    title: "GEO vs SEO: What's the Difference and Which One Does Your Business Need in 2026?",
+    title: GEO_VS_SEO_TITLE,
     excerpt:
       "Ranking on Google's first page used to be the whole game. In 2026, AI answers decide whether you get found — or disappear from the conversation.",
     date: '03 September 2026',
@@ -42,6 +58,18 @@ export const BLOGS: BlogPost[] = [
     cover: img.branding,
     coverAlt: 'Branding and marketing strategy for AI-era search visibility',
     ogImage: img.branding,
+    keywords: [
+      'GEO vs SEO',
+      'GEO vs SEO 2026',
+      "what's the difference between GEO and SEO",
+      'generative engine optimization',
+      'which one does your business need',
+      'AI search visibility',
+      'Google AI Overviews',
+      'ChatGPT brand visibility',
+      'SEO 2026',
+      'branding agency India',
+    ],
     blocks: [
       {
         type: 'p',
@@ -124,7 +152,8 @@ export function getBlogSlugs() {
   return BLOGS.map((post) => post.slug);
 }
 
-export function blogArticleJsonLd(post: BlogPost) {
+export function blogArticleJsonLd(post: BlogPost, siteUrl: string) {
+  const url = `${siteUrl}${blogPath(post.slug)}`;
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -132,20 +161,51 @@ export function blogArticleJsonLd(post: BlogPost) {
     description: post.excerpt,
     datePublished: post.dateIso,
     dateModified: post.dateIso,
-    image: post.cover.startsWith('http') ? post.cover : undefined,
+    url,
+    image: `${siteUrl}${post.cover}`,
     author: {
       '@type': 'Organization',
       name: 'ALLSOLL',
+      url: siteUrl,
     },
     publisher: {
       '@type': 'Organization',
       name: 'ALLSOLL',
+      url: siteUrl,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}/AllSoll_logo.webp`,
+      },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `/blog/${post.slug}/`,
+      '@id': url,
     },
     articleSection: post.category,
-    keywords: post.tags.join(', '),
+    keywords: post.keywords.join(', '),
+    inLanguage: 'en-IN',
+  };
+}
+
+export function blogIndexJsonLd(siteUrl: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'ALLSOLL Journal',
+    description:
+      'GEO vs SEO, AI search visibility, and how brands get found when search becomes a generated answer.',
+    url: `${siteUrl}/blog/`,
+    publisher: {
+      '@type': 'Organization',
+      name: 'ALLSOLL',
+      url: siteUrl,
+    },
+    blogPost: BLOGS.map((post) => ({
+      '@type': 'BlogPosting',
+      headline: post.title,
+      url: `${siteUrl}${blogPath(post.slug)}`,
+      datePublished: post.dateIso,
+      description: post.excerpt,
+    })),
   };
 }

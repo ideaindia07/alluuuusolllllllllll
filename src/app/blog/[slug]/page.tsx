@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import BlogDetail from '@/components/blog/BlogDetail';
 import JsonLd from '@/components/seo/JsonLd';
-import { BLOGS, getBlog, blogArticleJsonLd } from '@/lib/blogs';
+import { BLOGS, getBlog, blogArticleJsonLd, blogPath } from '@/lib/blogs';
 import { SITE_URL } from '@/lib/seo';
 
 type PageProps = {
@@ -17,16 +17,28 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const post = getBlog(slug);
   if (!post) return { title: 'Journal' };
+
+  const canonical = blogPath(post.slug);
+  const absolute = `${SITE_URL}${canonical}`;
+
   return {
     title: post.title,
     description: post.excerpt,
-    keywords: post.tags,
-    alternates: { canonical: `/blog/${post.slug}/` },
+    keywords: post.keywords,
+    authors: [{ name: 'ALLSOLL' }],
+    category: post.category,
+    alternates: { canonical },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: 'article',
+      url: absolute,
+      locale: 'en_IN',
+      siteName: 'ALLSOLL',
       publishedTime: post.dateIso,
+      modifiedTime: post.dateIso,
+      authors: ['ALLSOLL'],
+      tags: post.tags,
       images: [{ url: post.cover, alt: post.coverAlt }],
     },
     twitter: {
@@ -34,6 +46,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: post.title,
       description: post.excerpt,
       images: [post.cover],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   };
 }
@@ -43,26 +65,9 @@ export default async function BlogPostPage({ params }: PageProps) {
   const post = getBlog(slug);
   if (!post) notFound();
 
-  const jsonLd = {
-    ...blogArticleJsonLd(post),
-    image: `${SITE_URL}${post.cover}`,
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `${SITE_URL}/blog/${post.slug}/`,
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'ALLSOLL',
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_URL}/AllSoll_logo.webp`,
-      },
-    },
-  };
-
   return (
     <>
-      <JsonLd data={jsonLd} />
+      <JsonLd data={blogArticleJsonLd(post, SITE_URL)} />
       <BlogDetail post={post} />
     </>
   );

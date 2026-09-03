@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
   return SITE_PAGES.map((page) => ({
     url: `${SITE_URL}${page.path === '/' ? '/' : page.path}`,
-    lastModified,
+    lastModified: page.lastModified ? new Date(page.lastModified) : lastModified,
     changeFrequency: page.changeFrequency,
     priority: page.priority,
   }));
