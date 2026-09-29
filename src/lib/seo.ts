@@ -9,9 +9,57 @@ export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://allsoll.co
 export const SITE_NAME = 'ALLSOLL';
 
 export const HOME_SEO_TITLE =
-  'Branding & Digital Marketing Agency in India | Allsoll';
+  'Digital Marketing Agency In Jaipur | Brand Consultant | AllSoll';
 export const HOME_SEO_DESCRIPTION =
-  'Allsoll is a branding and digital marketing agency in India, helping brands grow with creative strategy, performance marketing, and digital solutions.';
+  'AllSoll is a trusted Digital Marketing Agency in Jaipur providing SEO, brand consulting, social media, and digital marketing solutions for businesses.';
+
+export const HOME_HEADING =
+  'Digital Marketing Agency in Jaipur for Business Growth';
+export const HOME_INTRO =
+  'AllSoll is a digital marketing agency in Jaipur helping businesses build a strong online presence through SEO, social media marketing, branding, performance marketing, and strategic digital solutions. We create customized strategies designed to increase visibility, reach the right audience, and support sustainable business growth.';
+
+export const HOME_FAQS: { q: string; a: string }[] = [
+  {
+    q: 'What does AllSoll offer as a digital marketing agency in Jaipur?',
+    a: 'AllSoll provides complete digital marketing services in Jaipur, including SEO, social media marketing, Google Ads, website development, branding, and content marketing.',
+  },
+  {
+    q: 'Why choose AllSoll as a digital marketing agency in Jaipur?',
+    a: 'AllSoll focuses on customized digital marketing strategies that help businesses improve their online visibility, reach the right audience, generate leads, and grow their brand.',
+  },
+  {
+    q: 'Does AllSoll provide SEO services in Jaipur?',
+    a: 'Yes, AllSoll offers SEO services designed to improve search engine rankings, increase organic traffic, and help businesses build a stronger online presence.',
+  },
+  {
+    q: 'Does AllSoll provide brand consulting services?',
+    a: 'Yes. AllSoll provides brand consulting to help businesses develop a clear brand identity, positioning, messaging, and marketing strategy.',
+  },
+  {
+    q: 'Can AllSoll help improve my Google rankings?',
+    a: "Yes. Our SEO strategies focus on technical SEO, on-page optimization, content, local SEO, and other proven practices to improve your website's search visibility.",
+  },
+  {
+    q: 'Does AllSoll offer local SEO services in Jaipur?',
+    a: 'Yes. AllSoll helps local businesses improve their visibility in Google Search and Google Maps through local SEO, Google Business Profile optimization, and location-focused strategies.',
+  },
+  {
+    q: 'How can digital marketing help my business grow?',
+    a: 'Digital marketing can help your business reach potential customers online, increase brand awareness, generate qualified leads, and build long-term online visibility.',
+  },
+  {
+    q: 'Does AllSoll create customized digital marketing strategies?',
+    a: 'Yes. AllSoll develops customized strategies based on your business goals, target audience, industry, competition, and current online presence.',
+  },
+  {
+    q: 'What businesses can work with AllSoll?',
+    a: 'AllSoll can work with businesses across different industries and create digital marketing, SEO, branding, and online growth strategies based on their specific requirements.',
+  },
+  {
+    q: 'How can I get started with AllSoll?',
+    a: 'You can contact AllSoll to discuss your business goals and online marketing requirements. Our team can recommend suitable digital marketing, SEO, or branding solutions.',
+  },
+];
 
 export const SEO_KEYWORDS = [
   'branding agency in Jaipur',
@@ -23,6 +71,8 @@ export const SEO_KEYWORDS = [
   'creative agency India',
   'marketing agency in Jaipur',
   'digital marketing agency in Jaipur',
+  'brand consultant Jaipur',
+  'brand consulting Jaipur',
   'digital marketing agency in India',
   'digital marketing agency for startups',
   'performance marketing agency Jaipur',
@@ -84,16 +134,19 @@ export const SERVICE_SEO: Record<
   { title: string; description: string; keywords: string[] }
 > = {
   branding: {
-    title: 'Branding Agency in India & Jaipur | Brand Identity Systems — ALLSOLL',
+    title: 'Branding Agency In India | Brand Strategy Consultant | AllSoll',
     description:
-      'Allsoll is a branding agency in India and Jaipur building complete brand identity systems — logo, visual language, tone and positioning — not just a logo file.',
+      'Build a strong brand with AllSoll, a branding agency in India offering expert brand strategy, identity, positioning, and consulting for business growth.',
     keywords: [
       'branding agency in India',
+      'brand strategy consultant',
+      'brand strategy India',
+      'brand identity design',
+      'brand positioning India',
       'branding agency in Jaipur',
       'best branding agency in India',
       'top branding agencies in India',
       'top 10 branding companies in India',
-      'brand identity design Jaipur',
       'logo and brand system India',
     ],
   },
@@ -243,13 +296,12 @@ export function organizationJsonLd() {
   };
 }
 
-export function serviceFaqJsonLd(slug: string) {
-  const service = SERVICES.find((s) => s.slug === slug);
-  if (!service || service.faqs.length === 0) return null;
+export function faqPageJsonLd(faqs: { q: string; a: string }[]) {
+  if (faqs.length === 0) return null;
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: service.faqs.map((faq) => ({
+    mainEntity: faqs.map((faq) => ({
       '@type': 'Question',
       name: faq.q,
       acceptedAnswer: {
@@ -258,4 +310,14 @@ export function serviceFaqJsonLd(slug: string) {
       },
     })),
   };
+}
+
+export function homeFaqJsonLd() {
+  return faqPageJsonLd(HOME_FAQS);
+}
+
+export function serviceFaqJsonLd(slug: string) {
+  const service = SERVICES.find((s) => s.slug === slug);
+  if (!service || service.faqs.length === 0) return null;
+  return faqPageJsonLd(service.faqs);
 }

@@ -32,20 +32,24 @@ export const SERVICES: Service[] = [
     cta: "Ready to be one of the top 10 branding companies in India talk about? Let's build the identity first.",
     faqs: [
       {
-        q: 'What exactly is included in a "branding" project with Allsoll?',
-        a: 'A complete identity system — logo, visual language, tone of voice, and positioning — built to work together across every touchpoint, not just a standalone logo file.',
+        q: 'What does a branding agency in India do?',
+        a: 'A branding agency helps businesses build a strong and consistent brand through strategy, positioning, visual identity, messaging, and other branding solutions.',
       },
       {
-        q: 'How is Allsoll different from other branding agencies in India?',
-        a: 'Most agencies stop at design. We start with positioning — how you want to be perceived — and let design follow from that, not the other way around.',
+        q: 'What branding services does AllSoll provide?',
+        a: 'AllSoll offers brand strategy, brand positioning, brand identity, logo design, visual branding, brand messaging, and consulting solutions tailored to business goals.',
       },
       {
-        q: 'Do you only work with established businesses, or also early-stage founders?',
-        a: 'Both. Early-stage founders often need this the most — the identity you launch with becomes the one people remember you by.',
+        q: 'Why is brand strategy important for a business?',
+        a: 'A clear brand strategy helps define your target audience, positioning, messaging, values, and overall direction, creating a consistent brand experience across channels.',
       },
       {
-        q: 'What happens after the brand identity is delivered — do you support rollout?',
-        a: 'Yes. We hand over full brand guidelines and can support execution across your first campaigns, website, or packaging so the identity is applied consistently from day one.',
+        q: 'Does AllSoll provide brand strategy consulting in India?',
+        a: 'Yes, AllSoll provides brand strategy consulting to help businesses define their market positioning, identify their target audience, strengthen their brand identity, and develop a clear growth direction.',
+      },
+      {
+        q: 'Can AllSoll help create a complete brand identity?',
+        a: 'Yes. AllSoll can help businesses develop a cohesive brand identity, including visual elements, brand messaging, positioning, and guidelines for maintaining consistency.',
       },
     ],
   },

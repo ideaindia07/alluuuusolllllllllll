@@ -18,14 +18,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const service = getService(slug);
   const seo = SERVICE_SEO[slug];
   if (!service) return { title: 'Service' };
+  const title = seo?.title ?? `${service.title} — ALLSOLL`;
+  const description = seo?.description ?? service.desc;
   return {
-    title: seo?.title ?? `${service.title} — ALLSOLL`,
-    description: seo?.description ?? service.desc,
+    title: { absolute: title },
+    description,
     keywords: seo?.keywords,
     alternates: { canonical: `/services/${service.slug}/` },
     openGraph: {
-      title: seo?.title ?? service.title,
-      description: seo?.description ?? service.desc,
+      title,
+      description,
       locale: 'en_IN',
     },
   };

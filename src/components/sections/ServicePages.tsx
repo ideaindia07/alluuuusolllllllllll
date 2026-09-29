@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import SmoothScroll from '@/components/ui/SmoothScroll';
 import ServicesGrid from '@/components/sections/ServicesGrid';
+import FaqSection from '@/components/sections/FaqSection';
 import { SERVICES, getAdjacentServices, type Service } from '@/lib/services';
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -109,23 +109,7 @@ export function ServiceDetailPage({ service }: { service: Service }) {
           </div>
         </section>
 
-        {service.faqs.length > 0 && (
-          <section className="border-t border-border-custom px-[6%] py-24 md:px-[8%] md:py-32">
-            <div className="mx-auto max-w-[820px]">
-              <span className="mb-4 block font-body text-[11px] font-semibold uppercase tracking-[0.3em] text-accent">
-                // FAQs
-              </span>
-              <h2 className="mb-12 font-display text-3xl font-semibold tracking-tight md:text-4xl">
-                Questions, answered.
-              </h2>
-              <div className="divide-y divide-white/10 border-t border-white/10">
-                {service.faqs.map((faq) => (
-                  <FaqItem key={faq.q} question={faq.q} answer={faq.a} />
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
+        <FaqSection faqs={service.faqs} />
 
         <section className="px-[6%] pb-28 text-center md:px-[8%]">
           <h2 className="mx-auto mb-8 max-w-[22ch] font-display text-3xl font-bold tracking-tighter md:text-5xl">
@@ -186,45 +170,5 @@ export function ServiceDetailPage({ service }: { service: Service }) {
       </main>
       <Footer />
     </SmoothScroll>
-  );
-}
-
-function FaqItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div>
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-start justify-between gap-6 py-6 text-left"
-        aria-expanded={open}
-      >
-        <span className="font-display text-lg font-medium tracking-tight md:text-xl">
-          {question}
-        </span>
-        <span
-          className={`mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/15 text-sm transition-transform duration-300 ${open ? 'rotate-45 border-accent text-accent' : 'text-white/60'}`}
-          aria-hidden
-        >
-          +
-        </span>
-      </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden"
-          >
-            <p className="pb-6 font-body text-base leading-relaxed text-text-secondary">
-              {answer}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
   );
 }

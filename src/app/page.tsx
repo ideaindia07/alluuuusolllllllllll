@@ -11,7 +11,16 @@ import { DemoOne } from "@/components/sections/demo";
 import PurposeHero from "@/components/purpose-magic/Hero";
 import PurposeGridCarousel from "@/components/purpose-magic/GridCarousel";
 import ServicesGrid from "@/components/sections/ServicesGrid";
-import { HOME_SEO_DESCRIPTION, HOME_SEO_TITLE } from "@/lib/seo";
+import FaqSection from "@/components/sections/FaqSection";
+import JsonLd from "@/components/seo/JsonLd";
+import {
+  HOME_FAQS,
+  HOME_HEADING,
+  HOME_INTRO,
+  HOME_SEO_DESCRIPTION,
+  HOME_SEO_TITLE,
+  homeFaqJsonLd,
+} from "@/lib/seo";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -34,6 +43,7 @@ export default function Home() {
   return (
     <SmoothScroll>
       {/* Cursor lives in root layout — avoid a second instance here */}
+      <JsonLd data={homeFaqJsonLd()} />
 
       {/* Site Navigation */}
       <Header />
@@ -46,10 +56,10 @@ export default function Home() {
         <section className="relative z-10 w-full bg-bg-primary px-[6%] py-16 md:px-[8%] md:py-20">
           <div className="mx-auto max-w-[900px] text-center">
             <h1 className="font-display text-3xl font-bold tracking-tight text-white md:text-5xl">
-              Branding &amp; Digital Marketing Agency in India | Allsoll
+              {HOME_HEADING}
             </h1>
             <p className="mt-6 font-body text-base leading-relaxed text-text-secondary md:text-lg">
-              Allsoll is a branding and digital marketing agency in India, helping brands grow with creative strategy, performance marketing, and digital solutions.
+              {HOME_INTRO}
             </p>
           </div>
         </section>
@@ -87,6 +97,8 @@ export default function Home() {
 
         {/* Section 9: Team Cards Grayscale Hover */}
         <Team />
+
+        <FaqSection faqs={HOME_FAQS} />
 
         {/* Section 10: Fullscreen CTA */}
         {/* <FinalCta /> */}
