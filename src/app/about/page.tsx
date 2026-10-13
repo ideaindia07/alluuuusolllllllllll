@@ -103,7 +103,7 @@ export default function AboutPage() {
               </p>
               <p className="font-body text-lg text-text-secondary leading-relaxed">
                 From brand consultation and strategy to expert social media management, 
-                luxury marketing, website design & development, and brand photoshoots — 
+                performance marketing agency, website design & development, and brand photoshoots — 
                 we architect the complete digital infrastructure for your brand&apos;s omnipresence.
               </p>
               <p className="font-body text-base text-text-tertiary">

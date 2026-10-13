@@ -84,7 +84,7 @@ export const SEO_KEYWORDS = [
   'social media marketing India',
   'website design company Jaipur',
   'website development India',
-  'luxury marketing agency India',
+  'Performance Marketing Agency agency India',
   'brand photoshoot Jaipur',
   'brand strategy India',
   'brand identity design Jaipur',
@@ -113,8 +113,8 @@ export const FOOTER_CRAWL_LINKS: { label: string; href: string }[] = [
   { label: 'Website design company Jaipur', href: '/services/website-design-development/' },
   { label: 'Website development India', href: '/services/website-design-development/' },
   { label: 'Digital marketing agency for startups', href: '/services/website-design-development/' },
-  { label: 'Luxury marketing agency India', href: '/services/luxury-marketing/' },
-  { label: 'Best ad agencies in India', href: '/services/luxury-marketing/' },
+  { label: 'Performance Marketing Agency agency India', href: '/services/performance-marketing-agency/' },
+  { label: 'Best ad agencies in India', href: '/services/performance-marketing-agency/' },
   { label: 'Brand photoshoot Jaipur', href: '/services/brand-photoshoots/' },
   { label: 'Creative agency Jaipur', href: '/services/' },
   { label: 'Creative agency India', href: '/services/' },
@@ -188,12 +188,12 @@ export const SERVICE_SEO: Record<
       'ecommerce website India',
     ],
   },
-  'luxury-marketing': {
-    title: 'Luxury Marketing Agency in India | Premium Brand Campaigns — ALLSOLL',
+  'performance-marketing-agency': {
+    title: 'Performance Marketing Agency | Paid Google Advertising | AllSoll',
     description:
-      'Luxury marketing from one of the best ad agencies in India. Premium campaigns for fashion, jewellery, hospitality and lifestyle brands that protect exclusivity.',
+      ' AllSoll is a performance marketing agency in Jaipur offering Google Ads and paid advertising to boost leads, conversions, and business growth.',
     keywords: [
-      'luxury marketing agency India',
+      'Performance Marketing Agency agency India',
       'best ad agencies in India',
       'premium brand marketing India',
       'luxury advertising Jaipur',
@@ -257,7 +257,7 @@ export function organizationJsonLd() {
     image: `${SITE_URL}/AllSoll_logo.webp`,
     email: 'tanishka@allsoll.com',
     description:
-      'Branding, digital marketing, social media, website design, luxury marketing and brand photoshoots. A creative agency in Jaipur serving brands across India.',
+      'Branding, digital marketing, social media, website design, Performance Marketing Agency and brand photoshoots. A creative agency in Jaipur serving brands across India.',
     areaServed: [
       { '@type': 'City', name: 'Jaipur' },
       { '@type': 'State', name: 'Rajasthan' },

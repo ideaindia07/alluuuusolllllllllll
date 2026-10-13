@@ -150,9 +150,9 @@ export const SERVICES: Service[] = [
     ],
   },
   {
-    slug: 'luxury-marketing',
+    slug: 'performance-marketing-agency',
     num: '05',
-    title: 'Luxury Marketing',
+    title: 'Performance Marketing Agency',
     shortTitle: 'Luxury',
     desc: 'Premium campaigns that elevate brand perception and drive exclusivity.',
     accent: '#FFD43B',
@@ -164,20 +164,24 @@ export const SERVICES: Service[] = [
     cta: "If your brand deserves to feel rare, let's market it like it is.",
     faqs: [
       {
-        q: "What kind of brands does Allsoll's luxury marketing serve?",
-        a: 'Premium and luxury-positioned brands across fashion, jewellery, hospitality, and lifestyle — anywhere perception directly drives price and demand.',
+        q: "What is a performance marketing agency?",
+        a: 'A performance marketing agency helps businesses achieve measurable results through online advertising campaigns, including lead generation, website conversions, and sales. AllSoll provides performance-focused digital marketing solutions to support business growth.',
       },
       {
-        q: 'How is luxury marketing different from regular performance marketing?',
-        a: 'It optimizes for perception and exclusivity alongside conversion. A luxury campaign that only chases clicks usually ends up devaluing the brand it’s meant to elevate.',
+        q: 'What Google Ads services does AllSoll offer?',
+        a: 'AllSoll helps businesses reach potential customers through paid Google advertising strategies, including search campaigns, keyword targeting, conversion tracking, and campaign optimization.',
       },
       {
-        q: 'Do you handle both strategy and execution for luxury campaigns?',
-        a: 'Yes, from positioning and creative direction through to media planning and execution.',
+        q: 'Why should I choose a performance marketing agency in Jaipur?',
+        a: 'Choosing a performance marketing agency in Jaipur can help local businesses develop targeted advertising strategies, reach relevant audiences, and measure campaign performance according to their business objectives.',
       },
       {
-        q: 'Can smaller premium brands work with Allsoll, or only established luxury names?',
-        a: 'Smaller premium brands are welcome. Luxury marketing is about how a brand is presented, not the size of the company behind it.',
+        q: 'How can Google Ads help my business generate leads?',
+        a: 'Google Ads allows businesses to reach people actively searching for relevant products or services. With effective keyword targeting, compelling ad copy, and optimized landing pages, businesses can attract potential customers and generate qualified leads.',
+      },
+      {
+        q: 'How much does performance marketing cost?',
+        a: 'Performance marketing costs depend on your advertising budget, campaign objectives, industry competition, and agency management fees. A tailored strategy can help businesses allocate their budgets effectively and track campaign results.',
       },
     ],
   },
