@@ -6,15 +6,6 @@ import { SERVICES } from '@/lib/services';
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-const spans = [
-  'md:col-span-7',
-  'md:col-span-5',
-  'md:col-span-4',
-  'md:col-span-8',
-  'md:col-span-6',
-  'md:col-span-6',
-];
-
 type ServicesGridProps = {
   eyebrow?: string;
   heading?: string;
@@ -61,7 +52,7 @@ export default function ServicesGrid({
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-12 md:gap-4">
+        <div className="services-grid grid w-full max-w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
           {SERVICES.map((service, i) => (
             <motion.div
               key={service.slug}
@@ -69,11 +60,11 @@ export default function ServicesGrid({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: i * 0.06, ease }}
-              className={spans[i]}
+              className="service-card flex w-full min-w-0 max-w-full flex-col"
             >
               <Link
                 href={`/services/${service.slug}`}
-                className="group relative flex h-full min-h-[240px] flex-col justify-between overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.02] p-7 md:min-h-[280px] md:p-9"
+                className="group relative flex h-full min-h-[240px] w-full min-w-0 max-w-full flex-col justify-between overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 sm:p-7 md:min-h-[280px] md:p-9"
               >
                 <span
                   aria-hidden
