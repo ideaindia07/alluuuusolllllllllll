@@ -6,21 +6,14 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import SmoothScroll from '@/components/ui/SmoothScroll';
-import type { BlogBlock, BlogPost } from '@/lib/blogs';
+import type { BlogBlock, BlogPost, BlogTocItem } from '@/lib/blogs';
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-const TOC = [
-  { id: 'what-is-geo', label: "What's GEO" },
-  { id: 'seo-quickly', label: 'SEO, quickly' },
-  { id: 'the-difference', label: 'The difference' },
-  { id: 'which-one', label: 'Which one in 2026' },
-];
-
 function accentTitle(title: string) {
-  const parts = title.split(/(GEO|SEO)/g);
+  const parts = title.split(/(GEO|SEO|AEO|Website|2026)/g);
   return parts.map((part, i) =>
-    part === 'GEO' || part === 'SEO' ? (
+    part === 'GEO' || part === 'SEO' || part === 'AEO' || part === 'Website' || part === '2026' ? (
       <span key={i} className="text-accent">
         {part}
       </span>
@@ -71,6 +64,26 @@ function BlockView({ block }: { block: BlogBlock }) {
           {block.text}
         </p>
       </blockquote>
+    );
+  }
+
+  if (block.type === 'faq') {
+    return (
+      <div className="my-6 space-y-4">
+        {block.items.map((item, i) => (
+          <div
+            key={i}
+            className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-colors hover:border-accent/30"
+          >
+            <h3 className="font-display text-lg md:text-xl font-semibold text-white">
+              {item.q}
+            </h3>
+            <p className="mt-3 font-body text-[16px] md:text-[17px] leading-[1.75] text-white/75">
+              {item.a}
+            </p>
+          </div>
+        ))}
+      </div>
     );
   }
 
@@ -146,7 +159,7 @@ function GeoSeoArena() {
   );
 }
 
-function TableOfContents({ active }: { active: string }) {
+function TableOfContents({ items, active }: { items: BlogTocItem[]; active: string }) {
   const columnRef = useRef<HTMLElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const [navStyle, setNavStyle] = useState<CSSProperties>({});
@@ -196,6 +209,8 @@ function TableOfContents({ active }: { active: string }) {
     };
   }, []);
 
+  if (!items || items.length === 0) return null;
+
   return (
     <aside ref={columnRef} className="relative hidden lg:block">
       <nav
@@ -207,7 +222,7 @@ function TableOfContents({ active }: { active: string }) {
         <span className="mb-4 font-body text-[10px] font-semibold uppercase tracking-[0.28em] text-text-tertiary">
           On this page
         </span>
-        {TOC.map((item) => (
+        {items.map((item) => (
           <a
             key={item.id}
             href={`#${item.id}`}
@@ -228,13 +243,25 @@ function TableOfContents({ active }: { active: string }) {
 export default function BlogDetail({ post }: { post: BlogPost }) {
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 28, mass: 0.3 });
-  const [active, setActive] = useState(TOC[0].id);
 
-  const tocIds = useMemo(() => TOC.map((item) => item.id), []);
+  const tocItems = useMemo<BlogTocItem[]>(() => {
+    if (post.toc && post.toc.length > 0) return post.toc;
+    return post.blocks
+      .filter((b): b is Extract<BlogBlock, { type: 'h2' }> => b.type === 'h2')
+      .map((b) => ({
+        id: b.id,
+        label: b.text.replace(/[:?]/g, '').trim(),
+      }));
+  }, [post]);
+
+  const [active, setActive] = useState<string>(tocItems[0]?.id || '');
 
   useEffect(() => {
-    const els = tocIds
-      .map((id) => document.getElementById(id))
+    if (tocItems.length === 0) return;
+    setActive(tocItems[0]?.id || '');
+
+    const els = tocItems
+      .map((item) => document.getElementById(item.id))
       .filter((el): el is HTMLElement => Boolean(el));
     if (els.length === 0) return;
 
@@ -250,7 +277,7 @@ export default function BlogDetail({ post }: { post: BlogPost }) {
 
     els.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, [tocIds]);
+  }, [tocItems]);
 
   return (
     <SmoothScroll>
@@ -343,7 +370,7 @@ export default function BlogDetail({ post }: { post: BlogPost }) {
 
         <section id="blog-article" className="relative px-[6%] py-16 md:px-[8%] md:py-24">
           <div className="mx-auto grid max-w-[1800px] grid-cols-1 gap-12 lg:grid-cols-[220px_minmax(0,720px)_1fr]">
-            <TableOfContents active={active} />
+            <TableOfContents items={tocItems} active={active} />
 
             <article className="flex flex-col gap-7">
               {post.blocks.map((block, i) => {

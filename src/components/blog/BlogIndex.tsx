@@ -22,8 +22,7 @@ const TICKER = [
 
 export default function BlogIndex() {
   const [startReveal, setStartReveal] = useState(false);
-  const featured = BLOGS[0];
-  const rest = BLOGS.slice(1);
+  const sortedBlogs = [...BLOGS].sort((a, b) => b.issue.localeCompare(a.issue));
 
   useEffect(() => {
     const timer = setTimeout(() => setStartReveal(true), 180);
@@ -50,7 +49,7 @@ export default function BlogIndex() {
                 // The Journal
               </span>
               <span className="font-body text-[11px] uppercase tracking-[0.22em] text-text-tertiary">
-                Issue 01 — 2026
+                Journal — 2026
               </span>
             </div>
 
@@ -87,9 +86,13 @@ export default function BlogIndex() {
 
         <section className="relative px-[6%] py-16 md:px-[8%] md:py-24">
           <div className="mx-auto max-w-[1800px]">
-            {featured && <BlogCard post={featured} featured />}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+              {sortedBlogs.map((post, i) => (
+                <BlogCard key={post.slug} post={post} index={i} />
+              ))}
+            </div>
 
-            <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
+            <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-3">
               {[
                 { k: 'Then', v: 'Ten blue links' },
                 { k: 'Now', v: 'One generated answer' },
@@ -104,14 +107,6 @@ export default function BlogIndex() {
                 </div>
               ))}
             </div>
-
-            {rest.length > 0 && (
-              <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-                {rest.map((post, i) => (
-                  <BlogCard key={post.slug} post={post} index={i} />
-                ))}
-              </div>
-            )}
           </div>
         </section>
       </main>

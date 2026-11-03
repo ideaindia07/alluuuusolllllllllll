@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import CustomCursor from '@/components/ui/CustomCursor';
 import FluidBackground from '@/components/ui/FluidBackground';
+import BackToTop from '@/components/ui/BackToTop';
 import JsonLd from '@/components/seo/JsonLd';
 import SeoCrawlLinks from '@/components/seo/SeoCrawlLinks';
 import { SEO_KEYWORDS, SITE_URL, organizationJsonLd, HOME_SEO_TITLE, HOME_SEO_DESCRIPTION } from '@/lib/seo';
@@ -99,6 +100,7 @@ export default function RootLayout({
         <FluidBackground />
         
         <CustomCursor />
+        <BackToTop />
         <JsonLd data={organizationJsonLd()} />
         <SeoCrawlLinks />
         {children}

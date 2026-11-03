@@ -1,9 +1,15 @@
+export type BlogTocItem = {
+  id: string;
+  label: string;
+};
+
 export type BlogBlock =
   | { type: 'p'; text: string }
   | { type: 'h2'; id: string; text: string }
   | { type: 'image'; src: string; alt: string; caption?: string }
   | { type: 'quote'; text: string }
-  | { type: 'callout'; label: string; text: string };
+  | { type: 'callout'; label: string; text: string }
+  | { type: 'faq'; items: { q: string; a: string }[] };
 
 export type BlogPost = {
   slug: string;
@@ -19,6 +25,7 @@ export type BlogPost = {
   coverAlt: string;
   ogImage: string;
   keywords: string[];
+  toc?: BlogTocItem[];
   blocks: BlogBlock[];
 };
 
@@ -43,7 +50,330 @@ export function blogPath(slug: string) {
 const GEO_VS_SEO_TITLE =
   "GEO vs SEO: What's the Difference and Which One Does Your Business Need in 2026?";
 
+const GEO_FUTURE_SEO_TITLE =
+  'Generative Engine Optimization (GEO): The Future of SEO';
+
+const WHY_WEBSITE_2026_TITLE =
+  'Why Every Business Needs a Professional Website in 2026?';
+
 export const BLOGS: BlogPost[] = [
+  {
+    slug: toBlogSlug(WHY_WEBSITE_2026_TITLE),
+    issue: '03',
+    title: WHY_WEBSITE_2026_TITLE,
+    excerpt:
+      'Picture a small furniture workshop in Jaipur. The work is beautiful, the regulars are loyal, and most orders come through word of mouth. Then a new customer calls and says, “I searched for you online and couldn’t find anything proper, so I nearly went somewhere else.” That workshop had an Instagram page, but it didn’t have a website and that nearly lost order says more than any statistic could.',
+    date: '28 October 2026',
+    dateIso: '2026-10-28',
+    readTime: '5 min',
+    category: 'Website Development',
+    tags: ['Website', 'Strategy', 'Mobile', 'Growth'],
+    cover: '/blogs/blog3/cover.webp',
+    coverAlt: 'Why Every Business Needs a Professional Website in 2026',
+    ogImage: '/blogs/blog3/cover.webp',
+    keywords: [
+      'Why Every Business Needs a Professional Website in 2026',
+      'professional website',
+      'website development services',
+      'website development Jaipur',
+      'business website 2026',
+      'why business needs a website',
+      'social media vs website',
+      'mobile first website development',
+      'Allsoll website development',
+    ],
+    toc: [
+      { id: 'people-check-you', label: 'People check you first' },
+      { id: 'social-media-is-rented-space', label: 'Social media is rented space' },
+      { id: 'search-is-changing', label: 'Search is changing' },
+      { id: 'most-visitors-on-phone', label: 'Visitors on phone' },
+      { id: 'it-works-while-youre-asleep', label: 'Works while you sleep' },
+      { id: 'why-a-template-isnt-enough', label: 'Templates aren’t enough' },
+      { id: 'what-to-look-for', label: 'Website services' },
+      { id: 'the-short-version', label: 'The short version' },
+    ],
+    blocks: [
+      {
+        type: 'p',
+        text: 'Picture a small furniture workshop in Jaipur. The work is beautiful, the regulars are loyal, and most orders come through word of mouth. Then a new customer calls and says, “I searched for you online and couldn’t find anything proper, so I nearly went somewhere else.”',
+      },
+      {
+        type: 'p',
+        text: 'That workshop had an Instagram page, but it didn’t have a website and that nearly lost order says more than any statistic could.',
+      },
+      {
+        type: 'h2',
+        id: 'people-check-you',
+        text: 'People check you before they trust you:',
+      },
+      {
+        type: 'p',
+        text: 'Whatever you sell, the buyer does the same thing first: they look you up. Usually on their phone, often in under a minute. A clean, professional website tells them you’re real, established and serious about your work. No website, or a broken one, makes them wonder and wondering is usually where the sale ends.',
+      },
+      {
+        type: 'h2',
+        id: 'social-media-is-rented-space',
+        text: 'Social media is rented space:',
+      },
+      {
+        type: 'p',
+        text: 'Instagram and Facebook are useful, but you don’t own them. Algorithms change, reach drops, accounts get restricted. Your website is the one place online that belongs to you. Your prices, your story, your contact details and your best work stay put, no matter what a platform decides next month.',
+      },
+      {
+        type: 'h2',
+        id: 'search-is-changing',
+        text: 'Search is changing, and your website is the source:',
+      },
+      {
+        type: 'p',
+        text: 'People still use Google, but more of them now ask ChatGPT or read an AI summary instead. Those tools pull their answers from websites, if yours is thin, outdated or badly built, there’s nothing for them to pick up, and a competitor’s page gets mentioned instead. In 2026, a good website isn’t only a place for visitors, it’s the raw material for every search tool out there.',
+      },
+      {
+        type: 'h2',
+        id: 'most-visitors-on-phone',
+        text: 'Most visitors will be on a phone:',
+      },
+      {
+        type: 'p',
+        text: 'In India especially, most traffic comes from mobile. If your site loads slowly, the text is tiny or the buttons are hard to tap, people leave, fast. A few seconds of delay can cost you real enquiries. Proper website development treats speed and mobile layout as basics, not extras.',
+      },
+      {
+        type: 'h2',
+        id: 'it-works-while-youre-asleep',
+        text: 'It works while you’re asleep:',
+      },
+      {
+        type: 'p',
+        text: 'A website answers questions at 11 pm, shows your work to someone in another city and collects enquiries on a Sunday, it doesn’t take holidays. Once it’s set up well, it’s one of the few parts of your business that keeps selling when you aren’t there.',
+      },
+      {
+        type: 'h2',
+        id: 'why-a-template-isnt-enough',
+        text: 'Why a template often isn’t enough:',
+      },
+      {
+        type: 'p',
+        text: 'Free builders and ready-made templates are fine for a quick start but they tend to look like everyone else’s, load slower than they should and give you little control over how visitors move through the page. If you want people to book, buy or call, the layout, wording and structure all have to push them that way, that takes planning, not just filling in a template.',
+      },
+      {
+        type: 'h2',
+        id: 'what-to-look-for',
+        text: 'What to look for in website development services:',
+      },
+      {
+        type: 'p',
+        text: 'Not all website development services are alike, so ask some plain questions like, Will the site be built around your brand, or adapted from a stock theme? \nHow will it perform on mobile? Who looks after hosting, security and updates once it’s live? and can they show you a site that actually brought a client results, not just one that looks nice?',
+      },
+      {
+        type: 'p',
+        text: 'Good website development is part design, part strategy and part engineering. You want a team that’s comfortable with all three, not one that treats it as a design job with a bit of code at the end.',
+      },
+      {
+        type: 'h2',
+        id: 'the-short-version',
+        text: 'The short version:',
+      },
+      {
+        type: 'quote',
+        text: 'A professional website in 2026 isn’t a luxury or a digital brochure. It’s where trust gets built, where search tools find you and where customers land before they ever speak to you.',
+      },
+      {
+        type: 'p',
+        text: 'Allsoll builds websites as part of the brand itself, so what people see online feels like the business they’ll meet in person.',
+      },
+    ],
+  },
+  {
+    slug: toBlogSlug(GEO_FUTURE_SEO_TITLE),
+    issue: '02',
+    title: GEO_FUTURE_SEO_TITLE,
+    excerpt:
+      "Try this the next time you’re bored. Open ChatGPT and ask it to recommend a few agencies, or restaurants, or accountants in your city and then do the same search on Google. The answers won’t match, sometimes they won’t even overlap and if your business is missing from the first one, that’s a problem no amount of ranking on page one will fix. That gap is what Generative Engine Optimization (GEO) is about.",
+    date: '24 October 2026',
+    dateIso: '2026-10-24',
+    readTime: '6 min',
+    category: 'Search Intelligence',
+    tags: ['GEO', 'SEO', 'AI Search', 'AEO'],
+    cover: '/blogs/blog2/cover.webp',
+    coverAlt: 'Generative Engine Optimization (GEO): The Future of SEO',
+    ogImage: '/blogs/blog2/cover.webp',
+    keywords: [
+      'Generative Engine Optimization',
+      'GEO The Future of SEO',
+      'GEO vs SEO',
+      'what is GEO',
+      'AI search optimization',
+      'AEO Answer Engine Optimization',
+      'ChatGPT search optimization',
+      'Google AI Overviews optimization',
+      'GEO strategy',
+      'GEO best practices',
+    ],
+    toc: [
+      { id: 'what-geo-actually-means', label: 'What GEO actually means' },
+      { id: 'geo-vs-seo', label: 'GEO vs SEO' },
+      { id: 'and-where-does-aeo-fit-in', label: 'Where does AEO fit in?' },
+      { id: 'why-this-is-the-future-of-seo', label: 'Why this is the future' },
+      { id: 'how-to-optimize-content', label: 'How to optimize' },
+      { id: 'geo-strategy', label: 'A GEO strategy' },
+      { id: 'specific-platforms', label: 'Specific platforms' },
+      { id: 'best-practices', label: 'Best practices' },
+      { id: 'faqs', label: 'FAQs' },
+    ],
+    blocks: [
+      {
+        type: 'p',
+        text: 'Try this the next time you’re bored. Open ChatGPT and ask it to recommend a few agencies, or restaurants, or accountants in your city and then do the same search on Google. The answers won’t match, sometimes they won’t even overlap and if your business is missing from the first one, that’s a problem no amount of ranking on page one will fix.',
+      },
+      {
+        type: 'p',
+        text: 'That gap is what Generative Engine Optimization (GEO) is about.',
+      },
+      {
+        type: 'h2',
+        id: 'what-geo-actually-means',
+        text: 'What GEO actually means:',
+      },
+      {
+        type: 'p',
+        text: 'Strip away the jargon and GEO is simple. You’re making your content easy for AI tools to find, understand and repeat. Old-school SEO was about getting your page to rank. GEO is about getting your name into the answer itself, whether that’s a paragraph in Google’s AI Overview or a recommendation inside ChatGPT.',
+      },
+      {
+        type: 'p',
+        text: 'People call it different things. AI search optimization, AI SEO, GEO. Mostly it’s the same idea wearing different labels, so don’t get hung up on the vocabulary.',
+      },
+      {
+        type: 'h2',
+        id: 'geo-vs-seo',
+        text: 'GEO vs SEO: no, one isn’t killing the other',
+      },
+      {
+        type: 'p',
+        text: 'Every few months someone online announces SEO is dead. It isn’t, if anything, the GEO vs SEO argument gets the relationship backwards.',
+      },
+      {
+        type: 'p',
+        text: 'AI tools learn from the open web. They read the same pages Google reads. If your site is slow, messy or full of thin content, there’s nothing worth quoting, and the AI moves on to someone else’s page. So SEO stays as the foundation: speed, structure, trust, proper content. GEO sits on top and asks a slightly different question. Not “does this page rank?” but “would an AI feel comfortable quoting it?”',
+      },
+      {
+        type: 'h2',
+        id: 'and-where-does-aeo-fit-in',
+        text: 'And where does AEO fit in?',
+      },
+      {
+        type: 'p',
+        text: 'You’ll also hear about Answer Engine Optimization (AEO). It came a little earlier and is mostly about getting short, direct answers picked up by featured snippets and voice assistants. GEO stretches that idea further, towards longer AI-written responses. The habits overlap a lot. If you write clear answers for one, you’re already halfway there for the other.',
+      },
+      {
+        type: 'h2',
+        id: 'why-this-is-the-future-of-seo',
+        text: 'Why this is the future of SEO:',
+      },
+      {
+        type: 'p',
+        text: 'I don’t think the future of SEO arrives as a big dramatic switch. It’s more of a slow drift. More people start their questions in a chat box. More people read an AI summary and don’t click anything. Traffic gets thinner, but the visitors who do arrive have usually heard your name from somewhere they trust, so they’re warmer.',
+      },
+      {
+        type: 'quote',
+        text: 'Which means being mentioned starts to matter more than being listed.',
+      },
+      {
+        type: 'h2',
+        id: 'how-to-optimize-content',
+        text: 'How to optimize content for AI search engines:',
+      },
+      {
+        type: 'p',
+        text: 'There’s no secret trick here, honestly. What works is mostly good writing with a few habits added.',
+      },
+      {
+        type: 'p',
+        text: 'Say the answer early. If someone asks “what is GEO?”, the first two lines of that section should tell them. Don’t make the reader (or the machine) dig through a long introduction first.',
+      },
+      {
+        type: 'p',
+        text: 'Write to real questions, pull them from your sales calls, your inbox and your comments. Use those as headings. People type questions into AI tools the way they’d ask a friend, so your pages should sound closer to that.',
+      },
+      {
+        type: 'p',
+        text: 'Say something specific. A real number from your own work, a small example, an opinion you’d defend. The internet has a thousand pages that all say the same thing, and AI tools have no reason to pick yours unless it adds something.',
+      },
+      {
+        type: 'p',
+        text: 'Keep the page tidy, clear headings, short paragraphs, an FAQ at the end. It helps people just as much as it helps machines.',
+      },
+      {
+        type: 'p',
+        text: 'Get talked about elsewhere. Reviews, press, forum threads, expert quotes. AI tools don’t only read your website. They read what the rest of the web says about you and update things. A stat from three years ago makes a page look neglected.',
+      },
+      {
+        type: 'h2',
+        id: 'geo-strategy',
+        text: 'A Generative Engine Optimization strategy you can start this week:',
+      },
+      {
+        type: 'p',
+        text: 'A decent Generative Engine Optimization strategy doesn’t need a new department or a big budget. Pick your ten most important pages, rewrite the opening of each so it answers its main question straight away. Add an honest FAQ, link related pages to each other so your site reads like a connected body of knowledge rather than a pile of unrelated posts.',
+      },
+      {
+        type: 'p',
+        text: 'Then, once a month, go and ask the AI tools about your category and see what they say. Whether they mention you, how they describe you, who they mention instead. That small habit tells you more about your progress than most dashboards will.',
+      },
+      {
+        type: 'h2',
+        id: 'specific-platforms',
+        text: 'A word on specific platforms:',
+      },
+      {
+        type: 'p',
+        text: 'ChatGPT search optimization leans on clarity and credibility. It tends to favor content that’s well sourced and backed up by mentions across the wider web, so building a presence beyond your own site helps.',
+      },
+      {
+        type: 'p',
+        text: 'Google AI Overviews optimization is closer to traditional SEO. Pages that already rank well, load fast and answer a question cleanly are the ones that get pulled in, and strong signals of experience and trust don’t hurt.',
+      },
+      {
+        type: 'h2',
+        id: 'best-practices',
+        text: 'If you remember only a few Generative Engine Optimization best practices',
+      },
+      {
+        type: 'callout',
+        label: 'Best Practices',
+        text: 'Answer first, be specific, keep the structure clean, earn mentions elsewhere, update often, check how AI describes you, none of that is glamorous. It’s patient work, the same kind SEO has always rewarded, just pointed at a new kind of reader.',
+      },
+      {
+        type: 'p',
+        text: 'The tools will keep changing. The businesses that explain things clearly will keep getting picked.',
+      },
+      {
+        type: 'h2',
+        id: 'faqs',
+        text: 'FAQs',
+      },
+      {
+        type: 'faq',
+        items: [
+          {
+            q: 'What is Generative Engine Optimization (GEO)?',
+            a: 'It’s the practice of shaping your content so AI tools like ChatGPT, Perplexity and Google’s AI Overviews can understand it and use it in their answers.',
+          },
+          {
+            q: 'Is GEO different from SEO?',
+            a: 'Yes, but they depend on each other. SEO helps you rank in search results. GEO helps you get mentioned inside AI-written answers. Good SEO is the base that GEO builds on.',
+          },
+          {
+            q: 'How long does GEO take to work?',
+            a: 'There’s no fixed timeline. Most businesses start noticing changes after a few months of steady, well-structured content, though it depends on competition and your site’s existing authority.',
+          },
+          {
+            q: 'Is GEO only for big brands?',
+            a: 'No. Smaller and local businesses can do well, because AI tools like clear, specific answers and a focused business can give exactly that',
+          },
+        ],
+      },
+    ],
+  },
   {
     slug: toBlogSlug(GEO_VS_SEO_TITLE),
     issue: '01',
@@ -69,6 +399,12 @@ export const BLOGS: BlogPost[] = [
       'ChatGPT brand visibility',
       'SEO 2026',
       'branding agency India',
+    ],
+    toc: [
+      { id: 'what-is-geo', label: "What's GEO" },
+      { id: 'seo-quickly', label: 'SEO, quickly' },
+      { id: 'the-difference', label: 'The difference' },
+      { id: 'which-one', label: 'Which one in 2026' },
     ],
     blocks: [
       {

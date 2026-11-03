@@ -35,6 +35,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     // Keep Lenis aligned with native scroll (hash links, refresh, back/forward)
     lenis.scrollTo(window.scrollY, { immediate: true, force: true });
+    (window as any).lenis = lenis;
 
     const updateTicker = (time: number) => {
       lenis.raf(time * 1000);
@@ -44,6 +45,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     gsap.ticker.lagSmoothing(500, 33);
 
     return () => {
+      delete (window as any).lenis;
       lenis.destroy();
       gsap.ticker.remove(updateTicker);
       gsap.ticker.lagSmoothing(500, 33);
