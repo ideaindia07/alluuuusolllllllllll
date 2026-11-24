@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+  <defs>
+    <pattern id="g2" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="gl2" cx="76%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#FFD43B" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#FFD43B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="#000000"/>
+  <rect width="1600" height="900" fill="url(#g2)"/>
+  <rect width="1600" height="900" fill="url(#gl2)"/>
+
+  <text x="80" y="92" fill="#FFD43B" font-size="21" font-weight="700" letter-spacing="6">// HOW DISCOVERY CHANGED</text>
+
+  <!-- LEFT: traditional results -->
+  <g transform="translate(80 140)">
+    <rect x="0" y="0" width="620" height="660" rx="28" fill="#070707" stroke="#FFFFFF" stroke-opacity="0.10"/>
+    <text x="40" y="62" fill="#9A9A9A" font-size="19" font-weight="700" letter-spacing="4">TRADITIONAL SEARCH</text>
+    <text x="40" y="106" fill="#FFFFFF" font-size="34" font-weight="700" letter-spacing="-0.6">Ten blue links</text>
+
+    <rect x="40" y="134" width="540" height="56" rx="28" fill="#0F0F0F" stroke="#FFFFFF" stroke-opacity="0.12"/>
+    <circle cx="72" cy="162" r="11" fill="none" stroke="#777777" stroke-width="2.5"/>
+    <path d="M80 170 l12 12" stroke="#777777" stroke-width="2.5" stroke-linecap="round"/>
+    <rect x="104" y="155" width="300" height="13" rx="6.5" fill="#FFFFFF" fill-opacity="0.18"/>
+
+    <g>
+      <rect x="40" y="222" width="300" height="15" rx="7.5" fill="#FFFFFF" fill-opacity="0.34"/>
+      <rect x="40" y="250" width="500" height="11" rx="5.5" fill="#FFFFFF" fill-opacity="0.13"/>
+      <rect x="40" y="272" width="430" height="11" rx="5.5" fill="#FFFFFF" fill-opacity="0.13"/>
+    </g>
+    <g>
+      <rect x="40" y="320" width="262" height="15" rx="7.5" fill="#FFFFFF" fill-opacity="0.30"/>
+      <rect x="40" y="348" width="500" height="11" rx="5.5" fill="#FFFFFF" fill-opacity="0.11"/>
+      <rect x="40" y="370" width="392" height="11" rx="5.5" fill="#FFFFFF" fill-opacity="0.11"/>
+    </g>
+    <g>
+      <rect x="40" y="418" width="286" height="15" rx="7.5" fill="#FFFFFF" fill-opacity="0.24"/>
+      <rect x="40" y="446" width="500" height="11" rx="5.5" fill="#FFFFFF" fill-opacity="0.09"/>
+      <rect x="40" y="468" width="356" height="11" rx="5.5" fill="#FFFFFF" fill-opacity="0.09"/>
+    </g>
+    <g opacity="0.55">
+      <rect x="40" y="516" width="240" height="15" rx="7.5" fill="#FFFFFF" fill-opacity="0.18"/>
+      <rect x="40" y="544" width="500" height="11" rx="5.5" fill="#FFFFFF" fill-opacity="0.07"/>
+    </g>
+    <text x="40" y="614" fill="#555555" font-size="20">The user picks. You compete for position.</text>
+  </g>
+
+  <!-- arrow -->
+  <g transform="translate(726 452)">
+    <path d="M0 18 H120" stroke="#FFD43B" stroke-width="3"/>
+    <path d="M104 4 l18 14 -18 14" fill="none" stroke="#FFD43B" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+
+  <!-- RIGHT: AI answer -->
+  <g transform="translate(900 140)">
+    <rect x="0" y="0" width="620" height="660" rx="28" fill="#0A0A0A" stroke="#FFD43B" stroke-opacity="0.38"/>
+    <text x="40" y="62" fill="#FFD43B" font-size="19" font-weight="700" letter-spacing="4">AI SEARCH</text>
+    <text x="40" y="106" fill="#FFFFFF" font-size="34" font-weight="700" letter-spacing="-0.6">One generated answer</text>
+
+    <rect x="40" y="134" width="540" height="56" rx="28" fill="#111111" stroke="#FFD43B" stroke-opacity="0.35"/>
+    <circle cx="72" cy="162" r="9" fill="#FFD43B"/>
+    <text x="96" y="170" fill="#D8D8D8" font-size="20">Best SEO agency for my business?</text>
+
+    <rect x="40" y="222" width="500" height="13" rx="6.5" fill="#FFFFFF" fill-opacity="0.30"/>
+    <rect x="40" y="252" width="540" height="13" rx="6.5" fill="#FFFFFF" fill-opacity="0.30"/>
+    <rect x="40" y="282" width="412" height="13" rx="6.5" fill="#FFFFFF" fill-opacity="0.30"/>
+
+    <rect x="40" y="326" width="540" height="92" rx="20" fill="#FFD43B" fill-opacity="0.10" stroke="#FFD43B" stroke-opacity="0.55"/>
+    <rect x="64" y="352" width="196" height="42" rx="21" fill="#FFD43B"/>
+    <text x="88" y="381" fill="#000000" font-size="20" font-weight="700">your brand</text>
+    <text x="282" y="372" fill="#FFD43B" font-size="19" font-weight="700">named as a source</text>
+    <text x="282" y="396" fill="#9A9A9A" font-size="16">this is what AI SEO wins</text>
+
+    <rect x="40" y="446" width="540" height="13" rx="6.5" fill="#FFFFFF" fill-opacity="0.22"/>
+    <rect x="40" y="476" width="470" height="13" rx="6.5" fill="#FFFFFF" fill-opacity="0.22"/>
+    <rect x="40" y="520" width="540" height="1" fill="#FFFFFF" fill-opacity="0.10"/>
+    <text x="40" y="564" fill="#9A9A9A" font-size="18" letter-spacing="1">SOURCES</text>
+    <rect x="156" y="548" width="110" height="24" rx="12" fill="none" stroke="#FFD43B" stroke-opacity="0.6"/>
+    <text x="172" y="565" fill="#FFD43B" font-size="14" font-weight="700">your site</text>
+    <rect x="278" y="548" width="96" height="24" rx="12" fill="none" stroke="#FFFFFF" stroke-opacity="0.16"/>
+    <rect x="386" y="548" width="76" height="24" rx="12" fill="none" stroke="#FFFFFF" stroke-opacity="0.16"/>
+    <text x="40" y="614" fill="#777777" font-size="20">No list. You compete for inclusion.</text>
+  </g>
+</svg>

@@ -9,6 +9,7 @@ export type BlogBlock =
   | { type: 'image'; src: string; alt: string; caption?: string }
   | { type: 'quote'; text: string }
   | { type: 'callout'; label: string; text: string }
+  | { type: 'list'; label?: string; items: string[] }
   | { type: 'faq'; items: { q: string; a: string }[] };
 
 export type BlogPost = {
@@ -53,10 +54,215 @@ const GEO_VS_SEO_TITLE =
 const GEO_FUTURE_SEO_TITLE =
   'Generative Engine Optimization (GEO): The Future of SEO';
 
+const AI_SEO_TITLE = 'AI SEO: How to Optimize Content for AI Search';
+
 const WHY_WEBSITE_2026_TITLE =
   'Why Every Business Needs a Professional Website in 2026?';
 
 export const BLOGS: BlogPost[] = [
+  {
+    slug: toBlogSlug(AI_SEO_TITLE),
+    issue: '04',
+    title: AI_SEO_TITLE,
+    excerpt:
+      'Search engine optimization is evolving with the rise of artificial intelligence. Traditional search engines are no longer the only way people discover information. Users are increasingly relying on AI-powered platforms such as ChatGPT, Google AI Overviews, Gemini and Perplexity to find answers, recommendations and solutions — and that shift has made AI SEO an important strategy for businesses that want to improve online visibility.',
+    date: '23 November 2026',
+    dateIso: '2026-11-23',
+    readTime: '7 min',
+    category: 'Search Intelligence',
+    tags: ['AI SEO', 'GEO', 'AI Search', 'Content'],
+    cover: '/blogs/blog4/cover.webp',
+    coverAlt: 'AI SEO: how to optimize content for AI search',
+    ogImage: '/blogs/blog4/cover.webp',
+    keywords: [
+      'AI SEO',
+      'AI SEO how to optimize content for AI search',
+      'AI search optimization',
+      'generative engine optimization GEO',
+      'AI search visibility',
+      'SEO for AI search',
+      'content optimization for AI',
+      'ChatGPT search optimization',
+      'Google AI Overviews optimization',
+      'digital marketing agency AI SEO',
+    ],
+    toc: [
+      { id: 'what-is-ai-seo', label: 'What is AI SEO' },
+      { id: 'why-ai-search-optimization-matters', label: 'Why it matters' },
+      { id: 'how-to-optimize-for-ai-search', label: 'How to optimize' },
+      { id: 'use-relevant-keywords', label: 'Relevant keywords' },
+      { id: 'answer-focused-content', label: 'Answer-focused content' },
+      { id: 'build-topical-authority', label: 'Topical authority' },
+      { id: 'technical-seo-and-structured-data', label: 'Technical SEO' },
+      { id: 'strengthen-brand-authority', label: 'Brand authority' },
+      { id: 'how-allsoll-can-help', label: 'How Allsoll helps' },
+      { id: 'conclusion', label: 'Conclusion' },
+    ],
+    blocks: [
+      {
+        type: 'p',
+        text: 'Search engine optimization is evolving with the rise of artificial intelligence. Traditional search engines are no longer the only way people discover information. Users are increasingly relying on AI-powered platforms such as ChatGPT, Google AI Overviews, Gemini and Perplexity to find answers, recommendations and solutions.',
+      },
+      {
+        type: 'p',
+        text: 'This shift has made AI SEO (Artificial Intelligence Search Engine Optimization) an important strategy for businesses that want to improve online visibility and attract potential customers.',
+      },
+      {
+        type: 'h2',
+        id: 'what-is-ai-seo',
+        text: 'What Is AI SEO?',
+      },
+      {
+        type: 'p',
+        text: 'AI SEO is the process of optimizing website content so it can be easily understood, discovered and referenced by AI-powered search engines and answer engines. Unlike traditional SEO, which focuses primarily on rankings in search engine results pages (SERPs), AI SEO also aims to make your content visible in AI-generated answers.',
+      },
+      {
+        type: 'p',
+        text: 'By using strategies such as semantic SEO, structured data, relevant keywords, high-quality content and topical authority, businesses can improve their chances of appearing in AI search results and recommendations.',
+      },
+      {
+        type: 'h2',
+        id: 'why-ai-search-optimization-matters',
+        text: 'Why Is AI Search Optimization Important?',
+      },
+      {
+        type: 'p',
+        text: 'AI search is changing how people look for products, services and information. Instead of clicking multiple links, users often receive direct answers from AI tools. This means businesses need to optimize their websites for both traditional search engines and AI platforms.',
+      },
+      {
+        type: 'list',
+        label: 'Key benefits',
+        items: [
+          'Improved visibility in AI-generated search results',
+          'Increased brand awareness across AI platforms',
+          'Better chances of being cited as a trusted source',
+          'More organic traffic and qualified leads',
+          'Stronger online authority and credibility',
+        ],
+      },
+      {
+        type: 'image',
+        src: '/blogs/blog4/traditional-vs-ai-search.webp',
+        alt: 'Traditional search results compared with a single AI-generated answer citing a brand',
+        caption: 'Ten blue links competed for position. One generated answer competes for inclusion.',
+      },
+      {
+        type: 'p',
+        text: 'Businesses that adopt AI SEO strategies early can build a stronger digital presence as search technology continues to evolve.',
+      },
+      {
+        type: 'h2',
+        id: 'how-to-optimize-for-ai-search',
+        text: 'How to Optimize Content for AI Search',
+      },
+      {
+        type: 'p',
+        text: 'There is no single trick to it. What works is a handful of habits applied consistently across your website, from the words you choose to the way the pages are built.',
+      },
+      {
+        type: 'image',
+        src: '/blogs/blog4/ai-seo-pillars.webp',
+        alt: 'The five moves of AI SEO: keywords, answer-first content, topical authority, technical SEO and brand authority',
+        caption: 'Five moves that make content easy for AI search to find, understand and quote.',
+      },
+      {
+        type: 'h2',
+        id: 'use-relevant-keywords',
+        text: '1. Use relevant SEO keywords naturally:',
+      },
+      {
+        type: 'p',
+        text: 'Keyword research remains an important part of AI SEO. Focus on relevant keywords such as AI SEO, AI search optimization, generative engine optimization (GEO), AI search visibility, SEO for AI search and content optimization for AI.',
+      },
+      {
+        type: 'p',
+        text: 'Include these keywords naturally in your headings, introduction, meta description and content. Avoid keyword stuffing and focus on answering the questions your audience is actually searching for.',
+      },
+      {
+        type: 'h2',
+        id: 'answer-focused-content',
+        text: '2. Create helpful, answer-focused content:',
+      },
+      {
+        type: 'p',
+        text: 'AI search platforms prioritize content that provides clear, relevant and useful information. Create blogs, FAQs, guides and service pages that directly answer user questions.',
+      },
+      {
+        type: 'p',
+        text: 'Use simple language, short paragraphs, descriptive headings, bullet points and clear explanations. Content that answers questions like “What is AI SEO?” or “How can businesses optimize for AI search?” is easier for both users and search engines to understand.',
+      },
+      {
+        type: 'h2',
+        id: 'build-topical-authority',
+        text: '3. Build topical authority:',
+      },
+      {
+        type: 'p',
+        text: 'Publishing consistent, informative content around your industry helps establish your website as a knowledgeable source. Create content clusters covering related topics, link relevant pages internally and provide accurate information backed by credible sources.',
+      },
+      {
+        type: 'p',
+        text: 'Building topical authority can improve your traditional SEO performance while strengthening your visibility in AI-driven search experiences.',
+      },
+      {
+        type: 'h2',
+        id: 'technical-seo-and-structured-data',
+        text: '4. Optimize technical SEO and structured data:',
+      },
+      {
+        type: 'p',
+        text: 'A technically optimized website makes it easier for search engines and AI systems to crawl, understand and access your content. Ensure your website has fast loading speeds, mobile-friendly design, clean URLs, an updated XML sitemap and proper internal linking.',
+      },
+      {
+        type: 'p',
+        text: 'Implement relevant schema markup, such as Organization, Article, FAQ and LocalBusiness schema where appropriate, to help search engines understand your website content more effectively.',
+      },
+      {
+        type: 'h2',
+        id: 'strengthen-brand-authority',
+        text: '5. Strengthen brand authority and online presence:',
+      },
+      {
+        type: 'p',
+        text: 'AI platforms may use information from multiple sources to understand and recommend brands. Maintain consistent business information across your website, social media profiles, directories and relevant industry platforms.',
+      },
+      {
+        type: 'p',
+        text: 'Customer reviews, expert content, brand mentions and credible backlinks can also help strengthen your brand’s reputation and online trust.',
+      },
+      {
+        type: 'callout',
+        label: 'In one line',
+        text: 'Traditional SEO earns you the ranking. AI SEO earns you the mention inside the answer.',
+      },
+      {
+        type: 'h2',
+        id: 'how-allsoll-can-help',
+        text: 'How Allsoll Can Help with AI SEO',
+      },
+      {
+        type: 'p',
+        text: 'Allsoll is a digital marketing agency that helps businesses strengthen their online presence through SEO, content marketing, digital marketing strategies and website optimization. As search continues to evolve, businesses need strategies that go beyond traditional keyword rankings.',
+      },
+      {
+        type: 'p',
+        text: 'Allsoll focuses on creating SEO-friendly content, improving website visibility, targeting relevant search keywords and building a strong digital presence to help businesses reach their target audience. By combining traditional SEO techniques with emerging AI search optimization strategies, businesses can prepare for the future of search and stay competitive online.',
+      },
+      {
+        type: 'h2',
+        id: 'conclusion',
+        text: 'Conclusion',
+      },
+      {
+        type: 'p',
+        text: 'AI SEO is becoming an essential part of modern digital marketing. Optimizing content for AI search requires helpful information, relevant keywords, strong topical authority, technical SEO and consistent brand visibility. Businesses that adapt to AI-powered search can improve their chances of being discovered by potential customers across multiple platforms.',
+      },
+      {
+        type: 'quote',
+        text: 'With the right strategy, businesses can build a stronger online presence, improve search visibility and prepare for the next generation of search engines.',
+      },
+    ],
+  },
   {
     slug: toBlogSlug(WHY_WEBSITE_2026_TITLE),
     issue: '03',

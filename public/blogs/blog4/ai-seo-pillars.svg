@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+  <defs>
+    <pattern id="g3" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="gl3" cx="50%" cy="8%" r="62%">
+      <stop offset="0%" stop-color="#FFD43B" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#FFD43B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="#000000"/>
+  <rect width="1600" height="900" fill="url(#g3)"/>
+  <rect width="1600" height="900" fill="url(#gl3)"/>
+
+  <text x="80" y="96" fill="#FFD43B" font-size="21" font-weight="700" letter-spacing="6">// THE FIVE MOVES</text>
+  <text x="78" y="162" fill="#FFFFFF" font-size="52" font-weight="700" letter-spacing="-1.4">How to optimize content for AI search</text>
+  <rect x="80" y="196" width="104" height="4" fill="#FFD43B"/>
+
+  <g transform="translate(80 262)">
+    <g transform="translate(0 0)">
+      <rect x="0" y="0" width="268" height="430" rx="26" fill="#0A0A0A" stroke="#FFD43B" stroke-opacity="0.40"/>
+      <text x="32" y="86" fill="#FFD43B" font-size="62" font-weight="700" letter-spacing="-2">01</text>
+      <rect x="32" y="112" width="52" height="3" fill="#FFD43B"/>
+      <text x="32" y="168" fill="#FFFFFF" font-size="26" font-weight="700">Relevant</text>
+      <text x="32" y="204" fill="#FFFFFF" font-size="26" font-weight="700">keywords</text>
+      <text x="32" y="258" fill="#9A9A9A" font-size="17.5">Used naturally in</text>
+      <text x="32" y="286" fill="#9A9A9A" font-size="17.5">headings, intros and</text>
+      <text x="32" y="314" fill="#9A9A9A" font-size="17.5">meta descriptions —</text>
+      <text x="32" y="342" fill="#9A9A9A" font-size="17.5">never stuffed.</text>
+    </g>
+
+    <g transform="translate(293 0)">
+      <rect x="0" y="0" width="268" height="430" rx="26" fill="#070707" stroke="#FFFFFF" stroke-opacity="0.11"/>
+      <text x="32" y="86" fill="#FFD43B" font-size="62" font-weight="700" letter-spacing="-2">02</text>
+      <rect x="32" y="112" width="52" height="3" fill="#FFFFFF" fill-opacity="0.2"/>
+      <text x="32" y="168" fill="#FFFFFF" font-size="26" font-weight="700">Answer-first</text>
+      <text x="32" y="204" fill="#FFFFFF" font-size="26" font-weight="700">content</text>
+      <text x="32" y="258" fill="#9A9A9A" font-size="17.5">Blogs, FAQs and</text>
+      <text x="32" y="286" fill="#9A9A9A" font-size="17.5">guides that reply to</text>
+      <text x="32" y="314" fill="#9A9A9A" font-size="17.5">the question in the</text>
+      <text x="32" y="342" fill="#9A9A9A" font-size="17.5">first two lines.</text>
+    </g>
+
+    <g transform="translate(586 0)">
+      <rect x="0" y="0" width="268" height="430" rx="26" fill="#070707" stroke="#FFFFFF" stroke-opacity="0.11"/>
+      <text x="32" y="86" fill="#FFD43B" font-size="62" font-weight="700" letter-spacing="-2">03</text>
+      <rect x="32" y="112" width="52" height="3" fill="#FFFFFF" fill-opacity="0.2"/>
+      <text x="32" y="168" fill="#FFFFFF" font-size="26" font-weight="700">Topical</text>
+      <text x="32" y="204" fill="#FFFFFF" font-size="26" font-weight="700">authority</text>
+      <text x="32" y="258" fill="#9A9A9A" font-size="17.5">Content clusters,</text>
+      <text x="32" y="286" fill="#9A9A9A" font-size="17.5">internal links and</text>
+      <text x="32" y="314" fill="#9A9A9A" font-size="17.5">accurate, sourced</text>
+      <text x="32" y="342" fill="#9A9A9A" font-size="17.5">information.</text>
+    </g>
+
+    <g transform="translate(879 0)">
+      <rect x="0" y="0" width="268" height="430" rx="26" fill="#070707" stroke="#FFFFFF" stroke-opacity="0.11"/>
+      <text x="32" y="86" fill="#FFD43B" font-size="62" font-weight="700" letter-spacing="-2">04</text>
+      <rect x="32" y="112" width="52" height="3" fill="#FFFFFF" fill-opacity="0.2"/>
+      <text x="32" y="168" fill="#FFFFFF" font-size="26" font-weight="700">Technical SEO</text>
+      <text x="32" y="204" fill="#FFFFFF" font-size="26" font-weight="700">&amp; schema</text>
+      <text x="32" y="258" fill="#9A9A9A" font-size="17.5">Speed, mobile-first</text>
+      <text x="32" y="286" fill="#9A9A9A" font-size="17.5">layout, clean URLs,</text>
+      <text x="32" y="314" fill="#9A9A9A" font-size="17.5">sitemap and schema</text>
+      <text x="32" y="342" fill="#9A9A9A" font-size="17.5">markup.</text>
+    </g>
+
+    <g transform="translate(1172 0)">
+      <rect x="0" y="0" width="268" height="430" rx="26" fill="#070707" stroke="#FFFFFF" stroke-opacity="0.11"/>
+      <text x="32" y="86" fill="#FFD43B" font-size="62" font-weight="700" letter-spacing="-2">05</text>
+      <rect x="32" y="112" width="52" height="3" fill="#FFFFFF" fill-opacity="0.2"/>
+      <text x="32" y="168" fill="#FFFFFF" font-size="26" font-weight="700">Brand</text>
+      <text x="32" y="204" fill="#FFFFFF" font-size="26" font-weight="700">authority</text>
+      <text x="32" y="258" fill="#9A9A9A" font-size="17.5">Consistent listings,</text>
+      <text x="32" y="286" fill="#9A9A9A" font-size="17.5">reviews, mentions</text>
+      <text x="32" y="314" fill="#9A9A9A" font-size="17.5">and credible</text>
+      <text x="32" y="342" fill="#9A9A9A" font-size="17.5">backlinks.</text>
+    </g>
+  </g>
+
+  <text x="80" y="780" fill="#555555" font-size="20">Do all five and you are optimizing for people, search engines and AI answers at once.</text>
+</svg>

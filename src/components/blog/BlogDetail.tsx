@@ -67,6 +67,26 @@ function BlockView({ block }: { block: BlogBlock }) {
     );
   }
 
+  if (block.type === 'list') {
+    return (
+      <div className="my-2 rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-7">
+        {block.label && (
+          <span className="mb-4 block font-body text-[11px] font-semibold uppercase tracking-[0.28em] text-accent">
+            {block.label}
+          </span>
+        )}
+        <ul className="flex flex-col gap-3">
+          {block.items.map((item, i) => (
+            <li key={i} className="flex gap-3 font-body text-[16px] md:text-[17px] leading-[1.75] text-white/78">
+              <span aria-hidden className="mt-[2px] text-accent">✦</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
   if (block.type === 'faq') {
     return (
       <div className="my-6 space-y-4">
